@@ -17,46 +17,47 @@ slides.forEach((slide, index) => {
 	dots.appendChild(dot)
 })
 
-// initiate currentSlide, dot and currentSlideNumber
-let currentSlide = document.querySelector(".banner-img")
-const dot = document.querySelectorAll(".dot")
+// initiate dot and currentSlideNumber
 let currentSlideNumber = 0
-dot[currentSlideNumber].classList.add("dot_selected") // set the first selected dot
+const dotElements = document.querySelectorAll(".dot")
+dotElements[currentSlideNumber].classList.add("dot_selected") // set the first selected dot
 
-// when click on a dot it change to the correct slide
-dot.forEach(event => {
-	event.addEventListener("click", () => {
-		currentSlideNumber = event.id.split("-")[1]
+// click on a dot to change to the corresponding slide
+dotElements.forEach(dotElement => {
+	dotElement.addEventListener("click", () => {
+		currentSlideNumber = dotElement.id.split("-")[1]
 		changeSlide()
 	})
 })
 
-// function
+// function to handle slide change when arrow is clicked
 function handleSlideChange(element) {
+	const slidesCount = slides.length - 1
 	if (element.classList.contains("arrow_right")) {
 		currentSlideNumber++
-		if (currentSlideNumber > 3) {
+		if (currentSlideNumber > slidesCount) {
 			currentSlideNumber = 0
 		}
-
-		changeSlide()
 	} else {
 		currentSlideNumber--
 		if (currentSlideNumber < 0) {
-			currentSlideNumber = 3
+			currentSlideNumber = slidesCount
 		}
-
-		changeSlide()
 	}
+	changeSlide()
 }
 
+// function to update the slide and dot selection
 function changeSlide() {
+	let currentSlide = document.querySelector(".banner-img")
 	let contentSlide = document.querySelector("#banner > p")
 	let previousDot = document.querySelector(".dot_selected")
 	
+	// Update slide image and tagLine
 	currentSlide.src = "./assets/images/slideshow/" + slides[currentSlideNumber]["image"]
 	contentSlide.innerHTML = slides[currentSlideNumber]["tagLine"]
 
+	// Update dot selection
 	previousDot.classList.remove("dot_selected")
-	dot[currentSlideNumber].classList.add("dot_selected")
+	dotElements[currentSlideNumber].classList.add("dot_selected")
 }
