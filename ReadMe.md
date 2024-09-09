@@ -4,3 +4,8 @@ Etape:
 -après avoir regarder le css j'ai pu voir qu'il y avait des classes déjà faite pour les éléments du carrousel,
 dont .arrow, .arrow_left, .arrow_right.
 -ajout des classes aux flèches ajouter dans le html plus tôt.
+
+-récupération des deux flèches par un querySelectorAll.
+-création fonction handleClick qui console.log l'élément passé en paramètre.
+-ajout d'une boucle forEach pour parcourir les 2 flèches selectionnées au click,
+qui appelle la fonction handleClick.
