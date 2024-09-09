@@ -23,3 +23,4 @@ Si c'est la flèche de droite on rajoute 1 à "currentSlideNumber", ou enlève 1
 -changement de la création des éléments "dot" en utilisant appendChild à la place de innerhtml pour une meilleur optimisation en ajouter en plus une id pour les reconnaitres entre eux au clique.
 -ajout d'un eventListener pour la sélection des points à la souris qui renvoie sur la bonne slide (ex: clique sur le point 3 = renvoie sur la 3eme slide).
 
+-change le contenue de la slide (balise p) dans la fonction changeSlide en même temps que l'image.

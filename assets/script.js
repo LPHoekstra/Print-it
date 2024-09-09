@@ -51,8 +51,12 @@ function handleSlideChange(element) {
 }
 
 function changeSlide() {
-	currentSlide.src = "./assets/images/slideshow/" + slides[currentSlideNumber]["image"]
+	let contentSlide = document.querySelector("#banner > p")
 	let previousDot = document.querySelector(".dot_selected")
+	
+	currentSlide.src = "./assets/images/slideshow/" + slides[currentSlideNumber]["image"]
+	contentSlide.innerHTML = slides[currentSlideNumber]["tagLine"]
+
 	previousDot.classList.remove("dot_selected")
 	dot[currentSlideNumber].classList.add("dot_selected")
 }
