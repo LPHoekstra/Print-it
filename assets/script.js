@@ -1,23 +1,6 @@
-const slides = [
-	{
-		"image":"slide1.jpg",
-		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
-	},
-	{
-		"image":"slide2.jpg",
-		"tagLine":"Tirages haute définition grand format <span>pour vos bureaux et events</span>"
-	},
-	{
-		"image":"slide3.jpg",
-		"tagLine":"Grand choix de couleurs <span>de CMJN aux pantones</span>"
-	},
-	{
-		"image":"slide4.png",
-		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
-	}
-]
+import { slides } from "./slides.js"
 
-// arrow
+// listening click on arrow
 const arrows = document.querySelectorAll("#banner .arrow") 
 arrows.forEach(arrow => {
 	arrow.addEventListener("click", () => {
@@ -25,25 +8,32 @@ arrows.forEach(arrow => {
 	})
 })
 
-// dots
+// creating dot div according to number of slides
 const dots = document.querySelector(".dots")
 slides.forEach(() => {
 	dots.innerHTML += "<div class='dot'></div>"
 })
 
-// change slide
+// initiate currentSlide, dot and currentSlideNumber
 let currentSlide = document.querySelector(".banner-img")
 const dot = document.querySelectorAll(".dot")
 let currentSlideNumber = 0
 dot[currentSlideNumber].classList.add("dot_selected") // set the first selected dot
 
-
 function handleSlideChange(element) {
 	if (element.classList.contains("arrow_right")) {
 		currentSlideNumber++
+		if (currentSlideNumber > 3) {
+			currentSlideNumber = 0
+		}
+
 		changeSlide()
 	} else {
 		currentSlideNumber--
+		if (currentSlideNumber < 0) {
+			currentSlideNumber = 3
+		}
+
 		changeSlide()
 	}
 }

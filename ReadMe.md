@@ -15,3 +15,7 @@ qui appelle la fonction handleSlideChange.
 -handleSlideChange qui vérifie sur quelle flèche l'utilisateur à cliquer.
 Si c'est la flèche de droite on rajoute 1 à "currentSlideNumber", ou enlève 1 si ce n'est pas le cas. Et appelle la fonction changeSlide
 -La fonction changeSlide change le src de la balise img enlève la précédente classe "dot_selected" puis ajoute cette classe au "dot" numéro "currentSlideNumber".
+
+-le carrousel tourne à l'infini grace aux conditions dans handleSlideChange.
+-Slides dans un fichier à part (slides.js) pour un code plus maintenable.
+-script.js de type module dans le html pour importer slides.js
