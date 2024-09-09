@@ -10,8 +10,11 @@ arrows.forEach(arrow => {
 
 // creating dot div according to number of slides
 const dots = document.querySelector(".dots")
-slides.forEach(() => {
-	dots.innerHTML += "<div class='dot'></div>"
+slides.forEach((slide, index) => {
+	const dot = document.createElement("div")
+	dot.classList.add("dot")
+	dot.id = `dot-${index}`
+	dots.appendChild(dot)
 })
 
 // initiate currentSlide, dot and currentSlideNumber
@@ -20,6 +23,15 @@ const dot = document.querySelectorAll(".dot")
 let currentSlideNumber = 0
 dot[currentSlideNumber].classList.add("dot_selected") // set the first selected dot
 
+// when click on a dot it change to the correct slide
+dot.forEach(event => {
+	event.addEventListener("click", () => {
+		currentSlideNumber = event.id.split("-")[1]
+		changeSlide()
+	})
+})
+
+// function
 function handleSlideChange(element) {
 	if (element.classList.contains("arrow_right")) {
 		currentSlideNumber++

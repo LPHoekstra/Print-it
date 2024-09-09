@@ -19,3 +19,7 @@ Si c'est la flèche de droite on rajoute 1 à "currentSlideNumber", ou enlève 1
 -le carrousel tourne à l'infini grace aux conditions dans handleSlideChange.
 -Slides dans un fichier à part (slides.js) pour un code plus maintenable.
 -script.js de type module dans le html pour importer slides.js
+
+-changement de la création des éléments "dot" en utilisant appendChild à la place de innerhtml pour une meilleur optimisation en ajouter en plus une id pour les reconnaitres entre eux au clique.
+-ajout d'un eventListener pour la sélection des points à la souris qui renvoie sur la bonne slide (ex: clique sur le point 3 = renvoie sur la 3eme slide).
+
